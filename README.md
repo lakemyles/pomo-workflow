@@ -179,8 +179,7 @@ Project Link: [https://github.com/lakemyles/pomo-workflow](https://github.com/la
 ## Acknowledgments
 
 * [Pomofocus.io](https://pomofocus.io/) - Inspiration for the website
-<!-- * []()
-* []() -->
+* [Othneil Drew](https://github.com/othneildrew/Best-README-Template) - README.md template
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
