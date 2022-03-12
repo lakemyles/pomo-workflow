@@ -4,6 +4,9 @@ const timer = {
     intervalId: 1,
     display: document.querySelector("#main-timer"),
     title: document.querySelector("#timer-title"),
+    startButton: document.querySelector("#start-button"),
+    stopButton: document.querySelector("#stop-button"),
+    resetButton: document.querySelector("#reset-button"),
     getMinutes() {
         return parseInt(this.timeInSeconds / 60, 10)
     },
@@ -22,6 +25,13 @@ const timer = {
     setTitle(newTitle) {
         this.title.textContent = newTitle;
     },
+    toggleButtons() {
+        this.startButton.classList.toggle("is-hidden");
+        this.stopButton.classList.toggle("is-hidden");
+        if (this.timeInSeconds < this.startTimeInSeconds) {
+            this.resetButton.classList.toggle("is-hidden");
+        }
+    },
     updateDisplay() {
         this.display.textContent = this.getDisplayTime();
     },
@@ -37,33 +47,21 @@ const timer = {
     start() {
         this.setTitle("Let's get to work!");
         this.updateTime();
-        toggleButtons();
+        this.toggleButtons();
     },
     stop() {
         this.setTitle("Oh no! Timer stopped!");
         this.pauseTime();
-        toggleButtons();
+        this.toggleButtons();
     },
     reset() {
         this.setTitle("Pomodoro");
         this.timeInSeconds = this.startTimeInSeconds;
         this.updateDisplay();
-        resetButton.classList.add("is-hidden");
+        this.resetButton.classList.add("is-hidden");
     }
-}
+};
 
-const startButton = document.querySelector("#start-button");
-const stopButton = document.querySelector("#stop-button");
-const resetButton = document.querySelector("#reset-button");
-
-startButton.addEventListener("click", () => timer.start());
-stopButton.addEventListener("click", () => timer.stop());
-resetButton.addEventListener("click", () => timer.reset());
-
-function toggleButtons() {
-    startButton.classList.toggle("is-hidden");
-    stopButton.classList.toggle("is-hidden");
-    if (timer.timeInSeconds < timer.startTimeInSeconds) {
-        resetButton.classList.toggle("is-hidden");
-    }
-}
+timer.startButton.addEventListener("click", () => timer.start());
+timer.stopButton.addEventListener("click", () => timer.stop());
+timer.resetButton.addEventListener("click", () => timer.reset());
