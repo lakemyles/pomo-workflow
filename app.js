@@ -3,6 +3,7 @@ const timer = {
     timeInSeconds: 1500,
     intervalId: 1,
     display: document.querySelector("#main-timer"),
+    title: document.querySelector("#timer-title"),
     getMinutes() {
         return parseInt(this.timeInSeconds / 60, 10)
     },
@@ -18,6 +19,9 @@ const timer = {
 
         return `${minutes}:${seconds}`;
     },
+    setTitle(newTitle) {
+        this.title.textContent = newTitle;
+    },
     updateDisplay() {
         this.display.textContent = this.getDisplayTime();
     },
@@ -31,24 +35,23 @@ const timer = {
         clearInterval(this.intervalId);
     },
     start() {
-        timerTitle.textContent = "Let's get to work!";
+        this.setTitle("Let's get to work!");
         this.updateTime();
         toggleButtons();
     },
     stop() {
-        timerTitle.textContent = "Oh no! Timer stopped!";
+        this.setTitle("Oh no! Timer stopped!");
         this.pauseTime();
         toggleButtons();
     },
     reset() {
-        timerTitle.textContent = "Pomodoro";
+        this.setTitle("Pomodoro");
         this.timeInSeconds = this.startTimeInSeconds;
         this.updateDisplay();
         resetButton.classList.add("is-hidden");
     }
 }
 
-const timerTitle = document.querySelector("#timer-title");
 const startButton = document.querySelector("#start-button");
 const stopButton = document.querySelector("#stop-button");
 const resetButton = document.querySelector("#reset-button");
