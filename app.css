@@ -1,0 +1,11 @@
+/* #timer {
+    display: block;
+} */
+
+#timer .card-footer {
+    padding: 1em;
+}
+
+#main-timer {
+    font-size: 10em;
+}
