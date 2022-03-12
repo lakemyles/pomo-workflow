@@ -7,20 +7,17 @@ const timer = {
     startButton: document.querySelector("#start-button"),
     stopButton: document.querySelector("#stop-button"),
     resetButton: document.querySelector("#reset-button"),
+    addLeadingZero(number) {
+        return number < 10 ? "0" + number : number;
+    },
     getMinutes() {
-        return parseInt(this.timeInSeconds / 60, 10)
+        return this.addLeadingZero(parseInt(this.timeInSeconds / 60, 10));
     },
     getSeconds() {
-        return parseInt(this.timeInSeconds % 60, 10)
+        return this.addLeadingZero(parseInt(this.timeInSeconds % 60, 10));
     },
     getDisplayTime() {
-        let minutes = this.getMinutes();
-        let seconds = this.getSeconds();
-
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-
-        return `${minutes}:${seconds}`;
+        return `${this.getMinutes()}:${this.getSeconds()}`;
     },
     setTitle(newTitle) {
         this.title.textContent = newTitle;
