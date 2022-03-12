@@ -9,3 +9,9 @@
 #main-timer {
     font-size: 10em;
 }
+
+@media screen and (max-width: 480px) {
+    #main-timer {
+        font-size: 7em;
+    }
+}
