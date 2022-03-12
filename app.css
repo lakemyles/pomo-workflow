@@ -6,6 +6,10 @@
     padding: 1em;
 }
 
+#timer .card-header {
+    padding: 0.4em;
+}
+
 #main-timer {
     font-size: 10em;
 }
